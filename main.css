@@ -139,7 +139,7 @@ header nav ul li.btn a:hover, .search .block button:hover{
 }
 
 .hero img {
-    position: static;
+    position: relative;
     top: -170px;
     right: -20px;
 }
