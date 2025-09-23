@@ -141,6 +141,7 @@ header nav ul li.btn a:hover, .search .block button:hover{
     position: absolute;
     top: -170px;
     right: -20px;
+    pointer-events: none;
 }
 
 .search {
