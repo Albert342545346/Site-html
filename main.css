@@ -1,0 +1,274 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700;800&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-family: 'Poppins', sans-serif;
+    font-weight: 800;
+    color: #fff;
+    font-size: 16px;
+}
+
+a{
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+}
+
+.wrapper {
+    background: linear-gradient(90deg, rgba(15,15,17,1) 20%, rgba(14,14,38,0.8816425120772947) 39%, rgba(9,9,121,1) 76%, rgba(0,212,255,1) 99%);
+    width: 100%;
+    height: 1200px;
+}
+
+.container {
+    width: 1400px;
+    margin: 0 auto;
+}
+
+header {
+    padding: 50px 0;
+}
+
+header .logo, footer .blocks .logo {
+    text-transform: uppercase;
+    font-size: 29px;
+    font-weight: 800;
+}
+
+header .logo {
+    color: #fff;
+}
+
+header nav {
+    float: right;
+    width: 55%;
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+}
+
+header nav ul li {
+    display: inline-block;
+}
+
+header nav ul li a{
+    color:#fff;
+    text-decoration: none;
+}
+
+header nav ul li.active::after {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 5px;
+    background: #DC7000;
+    border-radius: 10px;
+    position: relative;
+    top: 10px;
+    left: -15px;
+}
+
+header nav ul li.active::after {
+    color: brown;
+}
+
+header nav ul li:not(.active):not(.btn) a:hover {
+    border-bottom: 5px solid #DC7000;
+}
+
+header nav ul li.btn a, .search .block button{
+    background: #DC7000;
+    padding: 9px 17px;
+    border-radius: 10px;
+    transition: all 500ms ease;
+}
+
+header nav ul li.btn a:hover, .search .block button:hover{
+    background: #a02604;
+}
+
+.hero {
+    padding-bottom: 100px;
+    position: relative;
+}
+
+.hero--info {
+    width: 530px;
+    padding-top: 70px;
+}
+
+.hero--info h1{
+    color: #DC7000;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.hero--info h2{
+    font-size: 50px;
+    font-weight: 800;
+}
+
+.hero--info p{
+    font-weight: 500;
+    line-height: 170%;
+    margin: 30px;
+}
+
+.hero--info .btn {
+    background: #fa8305;
+    color: #fff;
+    border-radius: 50px;
+    padding: 15px 30px;
+    border: 0;
+    transition: all 500ms ease;
+}
+
+.hero--info .btn:hover {
+    cursor: pointer;
+    transform: scale(1.2);
+}
+
+.hero img {
+    position: absolute;
+    top: -170px;
+    right: -20px;
+}
+
+.search {
+    padding-bottom: 120px;
+}
+
+.search h3 {
+    margin-top: 100px;
+    font-size: 30px;
+}
+
+.search .block {
+    background: #1c140f;
+    margin-top: 30px;
+    border-radius: 20px;
+    padding: 40px 3%;
+    width: 94%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+}
+
+.search .block h4 {
+    font-size: 30px;
+    font-weight: 500;
+}
+
+.search .block input {
+    background: #fff;
+    outline: none;
+    border: 0;
+    border-radius: 5px;
+    width: 300px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    padding: 20px 30px;
+    position: relative;
+    right: -95px;
+    z-index: 1;
+    padding-right: 10px;
+}
+
+.search .block input::placeholder {
+    color: #898989;
+}
+
+.search .block button {
+    cursor: pointer;
+    border: 0;
+    padding: 13px 17px;
+    position: relative;
+    z-index: 2;
+    color: #fff;
+}
+
+footer {
+    background: #000;
+    padding: 50px 0;
+    position: relative;
+}
+
+footer .blocks {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 100px;
+}
+
+footer .blocks p {
+    width: 300px;
+    margin: 15px 0;
+}
+
+footer .blocks h5, h6 {
+    font-weight: 800;
+    font-size: 17px;
+}
+
+footer .blocks ul {
+    list-style: none;
+}
+
+footer .blocks ul li {
+    margin-top: 7px;
+    opacity: 0.8;
+}
+
+footer hr {
+    margin: 30 px 0;
+    border: 0;
+    height: 0.6px;
+    background: #fff;
+    margin-top: 100px;
+}
+
+footer > p {
+    text-align: center;
+}
+
+/* Clothes */
+
+.hero-Clothes .info {
+    width: 500px;
+    padding: 50px 0;
+}
+
+.hero-Clothes .info h1 {
+    margin-bottom: 15px;
+    font-size: 30px;
+    padding-left: 100px;
+}
+
+.okno {
+    float: right;
+    width: 60%;
+    padding-top: 50px;
+}
+.okno .btn {
+    background: #fa8305;
+    color: #fff;
+    border-radius: 50px;
+    padding: 20px 40px;
+    border: 0;
+    transition: all 500ms ease;
+    justify-content: space-between;
+}
+
+.okno .btn:hover {
+    cursor: pointer;
+    transform: scale(1.2);
+}
