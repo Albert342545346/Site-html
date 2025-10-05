@@ -1,39 +1,46 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700;800&display=swap');
 
-*{
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box; /* ← рекомендуется для предсказуемой верстки */
 }
 
-body{
+body {
     font-family: 'Poppins', sans-serif;
     font-weight: 800;
     color: #fff;
     font-size: 16px;
 }
 
-a{
+a {
     text-decoration: none;
 }
 
 img {
     max-width: 100%;
-    pointer-events: none;
+    height: auto;
 }
 
 .wrapper {
     background: linear-gradient(90deg, rgba(15,15,17,1) 20%, rgba(14,14,38,0.8816425120772947) 39%, rgba(9,9,121,1) 76%, rgba(0,212,255,1) 99%);
     width: 100%;
-    height: 1200px;
+    min-height: 100vh;
+    padding-bottom: 100px;
 }
 
 .container {
     width: 1400px;
     margin: 0 auto;
+    padding: 0 20px; /* ← добавлено для безопасности на узких экранах */
 }
 
 header {
     padding: 50px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
 }
 
 header .logo, footer .blocks .logo {
@@ -47,22 +54,23 @@ header .logo {
 }
 
 header nav {
-    float: right;
-    width: 55%;
+    width: auto;
+    margin-left: auto;
 }
 
 header nav ul {
     list-style: none;
     display: flex;
     justify-content: space-between;
+    gap: 25px;
 }
 
 header nav ul li {
     display: inline-block;
 }
 
-header nav ul li a{
-    color:#fff;
+header nav ul li a {
+    color: #fff;
     text-decoration: none;
 }
 
@@ -78,28 +86,32 @@ header nav ul li.active::after {
     left: -15px;
 }
 
-header nav ul li.active::after {
-    color: brown;
-}
+/* Удалён дублирующий селектор */
 
 header nav ul li:not(.active):not(.btn) a:hover {
     border-bottom: 5px solid #DC7000;
 }
 
-header nav ul li.btn a, .search .block button{
+header nav ul li.btn a,
+.search .block button {
     background: #DC7000;
     padding: 9px 17px;
     border-radius: 10px;
     transition: all 500ms ease;
 }
 
-header nav ul li.btn a:hover, .search .block button:hover{
+header nav ul li.btn a:hover,
+.search .block button:hover {
     background: #a02604;
 }
 
 .hero {
     padding-bottom: 100px;
     position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
 }
 
 .hero--info {
@@ -107,21 +119,21 @@ header nav ul li.btn a:hover, .search .block button:hover{
     padding-top: 70px;
 }
 
-.hero--info h1{
+.hero--info h1 {
     color: #DC7000;
     font-size: 20px;
     font-weight: 600;
 }
 
-.hero--info h2{
+.hero--info h2 {
     font-size: 50px;
     font-weight: 800;
 }
 
-.hero--info p{
+.hero--info p {
     font-weight: 500;
     line-height: 170%;
-    margin: 30px;
+    margin: 30px 0;
 }
 
 .hero--info .btn {
@@ -131,22 +143,23 @@ header nav ul li.btn a:hover, .search .block button:hover{
     padding: 15px 30px;
     border: 0;
     transition: all 500ms ease;
+    display: inline-block;
 }
 
 .hero--info .btn:hover {
     cursor: pointer;
-    transform: scale(1.2);
+    transform: scale(1.1);
 }
 
 .hero img {
-    position: relative;
-    top: -170px;
-    right: -20px;
-    display: inline-block;
+    max-width: 400px;
+    height: auto;
+    flex-shrink: 0;
 }
 
 .search {
     padding-bottom: 120px;
+    position: relative; /* чтобы .block не улетал */
 }
 
 .search h3 {
@@ -158,12 +171,14 @@ header nav ul li.btn a:hover, .search .block button:hover{
     background: #1c140f;
     margin-top: 30px;
     border-radius: 20px;
-    padding: 40px 3%;
-    width: 94%;
+    padding: 30px; /* базовый отступ */
+    width: 100%;
+    max-width: 1200px; /* ограничиваем на больших экранах */
     display: flex;
     justify-content: space-between;
     align-items: center;
-    position: absolute;
+    gap: 30px; /* отступ между колонками */
+    box-sizing: border-box;
 }
 
 .search .block h4 {
@@ -180,9 +195,7 @@ header nav ul li.btn a:hover, .search .block button:hover{
     font-family: 'Poppins', sans-serif;
     font-weight: 400;
     padding: 20px 30px;
-    position: relative;
-    right: -95px;
-    z-index: 1;
+    /* УДАЛЕНО: position: relative; right: -95px; */
     padding-right: 10px;
 }
 
@@ -194,8 +207,6 @@ header nav ul li.btn a:hover, .search .block button:hover{
     cursor: pointer;
     border: 0;
     padding: 13px 17px;
-    position: relative;
-    z-index: 2;
     color: #fff;
 }
 
@@ -209,6 +220,8 @@ footer .blocks {
     display: flex;
     justify-content: space-between;
     margin-top: 100px;
+    flex-wrap: wrap;
+    gap: 30px;
 }
 
 footer .blocks p {
@@ -216,7 +229,8 @@ footer .blocks p {
     margin: 15px 0;
 }
 
-footer .blocks h5, h6 {
+footer .blocks h5,
+footer .blocks h6 {
     font-weight: 800;
     font-size: 17px;
 }
@@ -231,11 +245,10 @@ footer .blocks ul li {
 }
 
 footer hr {
-    margin: 30 px 0;
+    margin: 100px 0 30px;
     border: 0;
     height: 0.6px;
     background: #fff;
-    margin-top: 100px;
 }
 
 footer > p {
@@ -260,6 +273,7 @@ footer > p {
     width: 60%;
     padding-top: 50px;
 }
+
 .okno .btn {
     background: #fa8305;
     color: #fff;
@@ -267,10 +281,12 @@ footer > p {
     padding: 20px 40px;
     border: 0;
     transition: all 500ms ease;
-    justify-content: space-between;
+    display: inline-block;
 }
 
 .okno .btn:hover {
     cursor: pointer;
-    transform: scale(1.2);
+    transform: scale(1.1);
 }
+
+
