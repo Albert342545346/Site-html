@@ -2,65 +2,107 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shop Website</title>
-    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="/css/clothes.css">
+    <link rel="stylesheet" href="/css/main.css">
 </head>
 <body>
     <div class="wrapper">
-    <header class="container project">
-        <span class="logo">logo</span>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li class="active"><a href="Clothes.html">Clothes</a></li>
-                <li><a href="Products.html">Products</a></li>
-                <li class="btn"><a href="Account.html">Account</a></li>
-            </ul>
-        </nav>
-    </header>
-
-
-    <div class="hero-Clothes.container">
-        <div class="info">
-            <h1 align="center">Buy things for your wardrobe. T-shirts, skirts, jeans, sweaters...</h1>
-        </div>
-    </div>
-
-    <div class="okno">
-        <button class="btn">Men</button>
-        <button class="btn">Women</button>
-        <button class="btn">Children</button>
-    </div>
-</div>
-
-<footer>
-    <div class="blocks container">
-        <div>
+        <header class="container project">
             <span class="logo">logo</span>
-            <p>We are confident in the quality of our product and recommend it to you</p>
+            <nav>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li class="active"><a href="Clothes.html">Clothes</a></li>
+                    <li><a href="Products.html">Products</a></li>
+                    <li class="btn"><a href="Account.html">Account</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <div class="hero-Clothes">
+            <div class="info">
+                <h1>Buy things for your wardrobe. T-shirts, skirts, jeans, sweaters...</h1>
+            </div>
         </div>
-        <div>
-            <h5>About us</h5>
-            <ul>
-                <li>Contact us</li>
-                <li>Portfolio</li>
-                <li>Instagram</li>
-                <li>Wildberries</li>
-            </ul>
+
+        <div class="okno">
+            <button class="btn" data-category="men">Men</button>
+            <button class="btn" data-category="women">Women</button>
+            <button class="btn" data-category="children">Children</button>
         </div>
-        <div>
-            <h6>Contact us</h6>
-            <p>Contact us by phone below</p>
-            <p>+7 (888) 555-35-35</p>
+
+        <!-- Контейнеры с товарами -->
+        <div id="men-products" class="products-container">
+            <div class="card" style="width: 18rem;">
+                <img src="https://via.placeholder.com/300x200?text=Men+T-Shirt" class="card-img-top" alt="Men T-Shirt">
+                <div class="card-body">
+                    <h5 class="card-title">Men T-Shirt</h5>
+                    <p class="card-text">Classic cotton t-shirt for everyday wear.</p>
+                    <a href="#" class="btn">View Product</a>
+                </div>
+            </div>
+        </div>
+
+        <div id="women-products" class="products-container">
+            <div class="card" style="width: 18rem;">
+                <img src="https://via.placeholder.com/300x200?text=Women+Dress" class="card-img-top" alt="Women Dress">
+                <div class="card-body">
+                    <h5 class="card-title">Summer Dress</h5>
+                    <p class="card-text">Light and comfortable dress for warm days.</p>
+                    <a href="#" class="btn">View Product</a>
+                </div>
+            </div>
+        </div>
+
+        <div id="children-products" class="products-container">
+            <div class="card" style="width: 18rem;">
+                <img src="https://via.placeholder.com/300x200?text=Kids+Outfit" class="card-img-top" alt="Kids Outfit">
+                <div class="card-body">
+                    <h5 class="card-title">Kids Set</h5>
+                    <p class="card-text">Soft and colorful outfit for children.</p>
+                    <a href="#" class="btn">View Product</a>
+                </div>
+            </div>
         </div>
     </div>
-    <hr>
-    <p>The site has been operating since 2024</p>
-</footer>
+
+    <footer>
+        <div class="blocks container">
+            <div>
+                <span class="logo">logo</span>
+                <p>We are confident in the quality of our product and recommend it to you</p>
+            </div>
+            <div>
+                <h5>About us</h5>
+                <ul>
+                    <li>Contact us</li>
+                    <li>Portfolio</li>
+                    <li>Instagram</li>
+                    <li>Wildberries</li>
+                </ul>
+            </div>
+            <div>
+                <h6>Contact us</h6>
+                <p>Contact us by phone below</p>
+                <p>+7 (888) 555-35-35</p>
+            </div>
+        </div>
+        <hr>
+        <p>The site has been operating since 2024</p>
+    </footer>
+
+    <script>
+        document.querySelectorAll('.btn[data-category]').forEach(button => {
+            button.addEventListener('click', () => {
+                const category = button.getAttribute('data-category');
+                document.querySelectorAll('.products-container').forEach(container => {
+                    container.style.display = 'none';
+                });
+                document.getElementById(`${category}-products`).style.display = 'block';
+            });
+        });
+    </script>
 </body>
-
-
 </html>
-
