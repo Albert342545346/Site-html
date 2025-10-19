@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shop Website</title>
-    <link rel="stylesheet" href="/css/clothes.css">
-    <link rel="stylesheet" href="/css/main.css">
+    <title>Shop Website - Clothes</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/clothes.css">
 </head>
 <body>
     <div class="wrapper">
@@ -13,7 +13,7 @@
             <span class="logo">logo</span>
             <nav>
                 <ul>
-                    <li><a href="/">Home</a></li>
+                    <li><a href="index.html">Home</a></li>
                     <li class="active"><a href="Clothes.html">Clothes</a></li>
                     <li><a href="Products.html">Products</a></li>
                     <li class="btn"><a href="Account.html">Account</a></li>
@@ -28,40 +28,73 @@
         </div>
 
         <div class="okno">
-            <button class="btn" data-category="men">Men</button>
-            <button class="btn" data-category="women">Women</button>
-            <button class="btn" data-category="children">Children</button>
+            <button class="filter-btn active" data-category="all">All</button>
+            <button class="filter-btn" data-category="men">Men</button>
+            <button class="filter-btn" data-category="women">Women</button>
+            <button class="filter-btn" data-category="children">Children</button>
         </div>
 
-        <!-- Контейнеры с товарами -->
-        <div id="men-products" class="products-container">
-            <div class="card" style="width: 18rem;">
+        <!-- Products Grid -->
+        <div class="products-grid container">
+            <!-- Men Products -->
+            <div class="product-card men" data-category="men">
                 <img src="https://via.placeholder.com/300x200?text=Men+T-Shirt" class="card-img-top" alt="Men T-Shirt">
                 <div class="card-body">
                     <h5 class="card-title">Men T-Shirt</h5>
                     <p class="card-text">Classic cotton t-shirt for everyday wear.</p>
+                    <p class="price">$29.99</p>
                     <a href="#" class="btn">View Product</a>
                 </div>
             </div>
-        </div>
 
-        <div id="women-products" class="products-container">
-            <div class="card" style="width: 18rem;">
+            <div class="product-card men" data-category="men">
+                <img src="https://via.placeholder.com/300x200?text=Men+Jeans" class="card-img-top" alt="Men Jeans">
+                <div class="card-body">
+                    <h5 class="card-title">Men Jeans</h5>
+                    <p class="card-text">Comfortable denim jeans for casual wear.</p>
+                    <p class="price">$49.99</p>
+                    <a href="#" class="btn">View Product</a>
+                </div>
+            </div>
+
+            <!-- Women Products -->
+            <div class="product-card women" data-category="women">
                 <img src="https://via.placeholder.com/300x200?text=Women+Dress" class="card-img-top" alt="Women Dress">
                 <div class="card-body">
                     <h5 class="card-title">Summer Dress</h5>
                     <p class="card-text">Light and comfortable dress for warm days.</p>
+                    <p class="price">$39.99</p>
                     <a href="#" class="btn">View Product</a>
                 </div>
             </div>
-        </div>
 
-        <div id="children-products" class="products-container">
-            <div class="card" style="width: 18rem;">
+            <div class="product-card women" data-category="women">
+                <img src="https://via.placeholder.com/300x200?text=Women+Skirt" class="card-img-top" alt="Women Skirt">
+                <div class="card-body">
+                    <h5 class="card-title">Elegant Skirt</h5>
+                    <p class="card-text">Perfect for office or casual occasions.</p>
+                    <p class="price">$34.99</p>
+                    <a href="#" class="btn">View Product</a>
+                </div>
+            </div>
+
+            <!-- Children Products -->
+            <div class="product-card children" data-category="children">
                 <img src="https://via.placeholder.com/300x200?text=Kids+Outfit" class="card-img-top" alt="Kids Outfit">
                 <div class="card-body">
                     <h5 class="card-title">Kids Set</h5>
                     <p class="card-text">Soft and colorful outfit for children.</p>
+                    <p class="price">$24.99</p>
+                    <a href="#" class="btn">View Product</a>
+                </div>
+            </div>
+
+            <div class="product-card children" data-category="children">
+                <img src="https://via.placeholder.com/300x200?text=Kids+Sweater" class="card-img-top" alt="Kids Sweater">
+                <div class="card-body">
+                    <h5 class="card-title">Kids Sweater</h5>
+                    <p class="card-text">Warm and cozy sweater for cold days.</p>
+                    <p class="price">$19.99</p>
                     <a href="#" class="btn">View Product</a>
                 </div>
             </div>
@@ -77,10 +110,10 @@
             <div>
                 <h5>About us</h5>
                 <ul>
-                    <li>Contact us</li>
-                    <li>Portfolio</li>
-                    <li>Instagram</li>
-                    <li>Wildberries</li>
+                    <li><a href="#">Contact us</a></li>
+                    <li><a href="#">Portfolio</a></li>
+                    <li><a href="#">Instagram</a></li>
+                    <li><a href="#">Wildberries</a></li>
                 </ul>
             </div>
             <div>
@@ -94,13 +127,34 @@
     </footer>
 
     <script>
-        document.querySelectorAll('.btn[data-category]').forEach(button => {
+        // Filter functionality
+        document.querySelectorAll('.filter-btn').forEach(button => {
             button.addEventListener('click', () => {
-                const category = button.getAttribute('data-category');
-                document.querySelectorAll('.products-container').forEach(container => {
-                    container.style.display = 'none';
+                // Remove active class from all buttons
+                document.querySelectorAll('.filter-btn').forEach(btn => {
+                    btn.classList.remove('active');
                 });
-                document.getElementById(`${category}-products`).style.display = 'block';
+                
+                // Add active class to clicked button
+                button.classList.add('active');
+                
+                const category = button.getAttribute('data-category');
+                const products = document.querySelectorAll('.product-card');
+                
+                products.forEach(product => {
+                    if (category === 'all' || product.getAttribute('data-category') === category) {
+                        product.style.display = 'block';
+                    } else {
+                        product.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Initialize - show all products
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('.product-card').forEach(product => {
+                product.style.display = 'block';
             });
         });
     </script>
